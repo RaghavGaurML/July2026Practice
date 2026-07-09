@@ -72,20 +72,3 @@ for u in users:
 print(status)
 
 
-# package code into functions
-def get_active_users_under_age(users: list[dict], age: int) -> list[dict]:
-    return [u for u in users if u["age"] <= age]
-
-def get_user_by_id(users: list[dict], id: int) -> dict:
-    return next((u for u in users if u["id"] == id), None)
-
-def group_names_by_status(users: list[dict]) -> dict:
-    user_status = {"active": [u["name"] for u in users if u["active"] == True], 
-                   "not_active": [u["name"] for u in users if u["active"] == False]}
-    
-    return user_status
-
-print(get_active_users_under_age(users, 35))
-print(get_user_by_id(users, 2))
-print(get_user_by_id(users, 99))
-print(group_names_by_status(users))
